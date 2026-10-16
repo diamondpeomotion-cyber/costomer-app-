@@ -1,0 +1,6 @@
+{
+  "name": "StudioFlow — White-label Salon OS",
+  "description": "White-label salon operating system with published salons, appointment booking with advance payments, AI smart recommendations, and loyalty rewards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
