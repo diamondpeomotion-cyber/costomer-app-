@@ -247,19 +247,19 @@ export const HomeView: React.FC = () => {
           {activeFiltersCount > 0 && (
             <button
               onClick={resetAllFilters}
-              className="text-xs text-slate-700 hover:bg-slate-100 flex items-center gap-1 cursor-pointer font-medium bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200 transition-colors"
+              className="text-xs text-[#242132] hover:bg-[#ECE7FF] flex items-center gap-1 cursor-pointer font-medium bg-[#FFFFFF] px-3.5 py-2.5 min-h-[44px] rounded-full border border-[#D8D0E7] transition-colors shadow-xs"
             >
-              <X className="w-3 h-3" />
+              <X className="w-3.5 h-3.5" />
               <span>Reset {activeFiltersCount} Filters</span>
             </button>
           )}
         </div>
 
         <div>
-          <h1 className="text-lg sm:text-2xl font-bold text-slate-900 tracking-tight">
+          <h1 className="text-lg sm:text-2xl font-bold text-[#242132] tracking-tight">
             Hello, {customer.name.split(' ')[0]} 👋
           </h1>
-          <p className="text-xs sm:text-sm text-slate-600 mt-1">
+          <p className="text-xs sm:text-sm text-[#65567E] mt-1">
             Discover nearby salons, check slot availability, and book appointments instantly.
           </p>
         </div>
@@ -268,7 +268,7 @@ export const HomeView: React.FC = () => {
       <div ref={searchContainerRef} className="relative pt-2">
             <form onSubmit={handleSearchSubmit}>
               <div className="relative flex items-center">
-                <Search className="w-4 h-4 text-slate-400 absolute left-4" />
+                <Search className="w-4 h-4 text-[#766A83] absolute left-4" />
                 <input
                   type="text"
                   placeholder="Search specific treatments, salons, skin fades, hydra facial, keratin..."
@@ -278,11 +278,11 @@ export const HomeView: React.FC = () => {
                     setSearchQuery(e.target.value);
                     setShowSearchDropdown(true);
                   }}
-                  className="w-full bg-white border border-slate-200 rounded-2xl pl-11 pr-24 py-3 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-300 shadow-md transition-all"
+                  className="w-full bg-[#FFFFFF] border border-[#D8D0E7] rounded-2xl pl-11 pr-26 py-3 min-h-[48px] text-xs sm:text-sm text-[#242132] placeholder-[#766A83] focus:outline-none focus:ring-2 focus:ring-[#A492F3] shadow-xs transition-all"
                 />
                 <button
                   type="submit"
-                  className="absolute right-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer shadow-sm"
+                  className="absolute right-1.5 bg-[#5841E8] hover:bg-[#4834d4] text-white text-xs font-semibold px-4 py-2 min-h-[40px] rounded-xl transition-all cursor-pointer shadow-xs inline-flex items-center justify-center"
                 >
                   Search
                 </button>
@@ -386,20 +386,20 @@ export const HomeView: React.FC = () => {
           </div>
 
           {/* Quick Filter Pill Toolbar (Services, Availability & Promotions) */}
-          <div className="pt-2 flex flex-wrap items-center gap-1.5">
+          <div className="pt-2 flex flex-wrap items-center gap-2">
             {/* Open Full Filter Drawer */}
             <button
               onClick={() => setShowQuickFilterModal(true)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer shadow-2xs ${
+              className={`flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold transition-all cursor-pointer shadow-xs ${
                 activeFiltersCount > 0
-                  ? 'bg-violet-600 text-white font-bold'
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+                  ? 'bg-[#5841E8] text-white font-bold'
+                  : 'bg-[#FFFFFF] hover:bg-[#ECE7FF] text-[#242132] border border-[#D8D0E7]'
               }`}
             >
-              <SlidersHorizontal className="w-3.5 h-3.5" />
+              <SlidersHorizontal className="w-4 h-4" />
               <span>Filters</span>
               {activeFiltersCount > 0 && (
-                <span className="w-4 h-4 rounded-full bg-white text-violet-700 text-[10px] font-black flex items-center justify-center">
+                <span className="w-5 h-5 rounded-full bg-white text-[#5841E8] text-[10px] font-black flex items-center justify-center">
                   {activeFiltersCount}
                 </span>
               )}
@@ -408,59 +408,59 @@ export const HomeView: React.FC = () => {
             {/* Quick Availability: Today */}
             <button
               onClick={() => setFilterDate(filterDate === 'today' ? null : 'today')}
-              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
                 filterDate === 'today'
-                  ? 'bg-emerald-600 text-white font-bold'
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+                  ? 'bg-emerald-600 text-white font-bold shadow-xs'
+                  : 'bg-[#FFFFFF] hover:bg-[#ECE7FF] text-[#242132] border border-[#D8D0E7]'
               }`}
             >
-              <Calendar className="w-3 h-3 text-emerald-600" />
+              <Calendar className="w-3.5 h-3.5 text-emerald-600" />
               <span>Available Today</span>
             </button>
 
             {/* Quick Availability: Evening Slots */}
             <button
               onClick={() => setFilterTimeSlot(filterTimeSlot === 'evening' ? null : 'evening')}
-              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
                 filterTimeSlot === 'evening'
-                  ? 'bg-indigo-600 text-white font-bold'
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+                  ? 'bg-[#5841E8] text-white font-bold shadow-xs'
+                  : 'bg-[#FFFFFF] hover:bg-[#ECE7FF] text-[#242132] border border-[#D8D0E7]'
               }`}
             >
-              <Clock className="w-3 h-3 text-indigo-600" />
+              <Clock className="w-3.5 h-3.5 text-[#5841E8]" />
               <span>Evening Slots</span>
             </button>
 
             {/* Quick Promotion: Active Offers */}
             <button
               onClick={() => setFilterPromotionType(filterPromotionType === 'any_offer' ? null : 'any_offer')}
-              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
                 filterPromotionType === 'any_offer'
-                  ? 'bg-amber-500 text-slate-950 font-bold'
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+                  ? 'bg-amber-400 text-[#242132] font-bold shadow-xs'
+                  : 'bg-[#FFFFFF] hover:bg-[#ECE7FF] text-[#242132] border border-[#D8D0E7]'
               }`}
             >
-              <Tag className="w-3 h-3 text-amber-600" />
+              <Tag className="w-3.5 h-3.5 text-amber-600" />
               <span>Active Offers</span>
             </button>
 
             {/* Quick Promotion: Video Reels */}
             <button
               onClick={() => setFilterPromotionType(filterPromotionType === 'video_reels' ? null : 'video_reels')}
-              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3.5 py-2.5 min-h-[44px] rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
                 filterPromotionType === 'video_reels'
-                  ? 'bg-rose-600 text-white font-bold'
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+                  ? 'bg-rose-600 text-white font-bold shadow-xs'
+                  : 'bg-[#FFFFFF] hover:bg-[#ECE7FF] text-[#242132] border border-[#D8D0E7]'
               }`}
             >
-              <Play className="w-3 h-3 fill-rose-500 text-rose-500" />
+              <Play className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
               <span>Reels</span>
             </button>
           </div>
 
           {/* Quick Specific Service Chips Bar */}
-          <div className="pt-2 flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
-            <span className="text-[10px] uppercase font-bold text-slate-500 shrink-0">
+          <div className="pt-2 flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+            <span className="text-[10px] uppercase font-bold text-[#65567E] shrink-0">
               Popular:
             </span>
             {POPULAR_FILTER_SERVICES.slice(0, 6).map((srv) => {
@@ -469,10 +469,10 @@ export const HomeView: React.FC = () => {
                 <button
                   key={srv.id}
                   onClick={() => handleServiceChipClick(srv.id)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-medium whitespace-nowrap transition-colors cursor-pointer ${
+                  className={`px-3.5 py-2 min-h-[44px] inline-flex items-center rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                     isSelected
-                      ? 'bg-violet-600 text-white font-bold shadow-xs'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+                      ? 'bg-[#5841E8] text-white font-bold shadow-xs'
+                      : 'bg-[#FFFFFF] hover:bg-[#ECE7FF] text-[#242132] border border-[#D8D0E7]'
                   }`}
                 >
                   {srv.label}
@@ -584,7 +584,7 @@ export const HomeView: React.FC = () => {
           </div>
           <button
             onClick={resetAllFilters}
-            className="text-xs text-rose-600 hover:text-rose-700 font-semibold underline cursor-pointer"
+            className="text-xs text-rose-600 hover:text-rose-700 font-semibold underline cursor-pointer min-h-[44px] px-3 py-2 inline-flex items-center"
           >
             Clear All
           </button>
@@ -642,24 +642,24 @@ export const HomeView: React.FC = () => {
       <section className="space-y-3.5">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-violet-100 text-violet-700 flex items-center justify-center shadow-2xs">
-              <Sparkles className="w-4 h-4" />
+            <div className="w-9 h-9 rounded-xl bg-[#ECE7FF] text-[#5841E8] flex items-center justify-center border border-[#D8D0E7] shadow-xs">
+              <Sparkles className="w-4 h-4 text-[#5841E8]" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-sm font-bold text-slate-900 tracking-tight">
+                <h2 className="text-base sm:text-lg font-bold text-[#242132] tracking-tight">
                   AI Smart Recommendations
                 </h2>
-                <span className="bg-violet-100 text-violet-800 text-[9px] font-extrabold px-2 py-0.5 rounded-full border border-violet-200">
+                <span className="bg-[#ECE7FF] text-[#5841E8] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#D8D0E7]">
                   SMART AI
                 </span>
               </div>
-              <p className="text-[11px] text-slate-500">Picks based on your booking cycle & 2026 trending styles</p>
+              <p className="text-xs text-[#65567E]">Picks based on your booking cycle & 2026 trending styles</p>
             </div>
           </div>
           <button
             onClick={() => showToast('Refreshed AI recommendations', 'success')}
-            className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-600 transition-colors cursor-pointer"
+            className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-[#FFFFFF] hover:bg-[#ECE7FF] border border-[#D8D0E7] text-[#65567E] hover:text-[#242132] transition-colors cursor-pointer shadow-xs"
             title="Refresh recommendations"
           >
             <RefreshCw className="w-4 h-4" />
@@ -672,10 +672,10 @@ export const HomeView: React.FC = () => {
             <button
               key={chip}
               onClick={() => showToast(`Filtered by ${chip}`, 'info')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+              className={`px-4 py-2.5 min-h-[44px] inline-flex items-center rounded-full text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
                 idx === 0
-                  ? 'bg-violet-600 text-white font-bold shadow-xs'
-                  : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
+                  ? 'bg-[#5841E8] text-[#FFFFFF] font-bold shadow-xs'
+                  : 'bg-[#FFFFFF] hover:bg-[#ECE7FF] text-[#65567E] border border-[#D8D0E7]'
               }`}
             >
               {chip}
@@ -729,51 +729,51 @@ export const HomeView: React.FC = () => {
           ].map((card, i) => (
             <div
               key={i}
-              className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col justify-between space-y-4 hover:border-violet-300 transition-all"
+              className="bg-[#FFFFFF] border border-[#D8D0E7] rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col justify-between space-y-4 hover:border-[#A492F3] transition-all"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border ${card.badgeColor}`}>
                     {card.badge}
                   </span>
-                  <span className="flex items-center gap-1 text-[11px] font-medium text-slate-500">
-                    <Clock className="w-3 h-3 text-slate-400" />
+                  <span className="flex items-center gap-1 text-[11px] font-medium text-[#65567E]">
+                    <Clock className="w-3 h-3 text-[#766A83]" />
                     <span>{card.time}</span>
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold text-slate-900 leading-tight">{card.title}</h3>
-                  <p className="text-xs text-slate-500 mt-0.5 flex items-center gap-1">
-                    <Scissors className="w-3 h-3 text-violet-600" />
+                  <h3 className="text-sm font-bold text-[#242132] leading-tight">{card.title}</h3>
+                  <p className="text-xs text-[#65567E] mt-0.5 flex items-center gap-1">
+                    <Scissors className="w-3 h-3 text-[#5841E8]" />
                     <span>{card.salon}</span>
                   </p>
                 </div>
 
                 {/* AI Tip Box */}
-                <div className="bg-violet-50/70 border border-violet-200/80 rounded-xl p-3 space-y-1">
+                <div className="bg-[#ECE7FF] border border-[#D8D0E7] rounded-xl p-3 space-y-1">
                   <div className="flex items-start gap-2">
-                    <Sparkles className="w-3.5 h-3.5 text-violet-600 shrink-0 mt-0.5" />
-                    <p className="text-[11px] text-violet-900 leading-relaxed font-medium">
+                    <Sparkles className="w-3.5 h-3.5 text-[#5841E8] shrink-0 mt-0.5" />
+                    <p className="text-[11px] text-[#242132] leading-relaxed font-medium">
                       {card.tip}
                     </p>
                   </div>
-                  <p className="text-[10px] text-violet-700/80 italic pl-5">
+                  <p className="text-[10px] text-[#65567E] italic pl-5">
                     {card.tipFooter}
                   </p>
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-3 border-t border-[#D8D0E7] flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">ESTIMATED</span>
-                  <span className="text-sm font-black text-slate-900 font-mono">{card.price}</span>
+                  <span className="text-[10px] font-semibold text-[#766A83] uppercase tracking-wider block">ESTIMATED</span>
+                  <span className="text-sm font-black text-[#242132] font-mono">{card.price}</span>
                 </div>
                 <button
                   onClick={() => {
                     setActiveTab('explore');
                   }}
-                  className="flex items-center gap-1.5 bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all cursor-pointer shadow-sm"
+                  className="flex items-center gap-1.5 bg-[#5841E8] hover:bg-[#4834d4] text-white text-xs font-bold px-4 py-2.5 min-h-[44px] rounded-xl transition-all cursor-pointer shadow-sm"
                 >
                   <span>Book Style</span>
                   <span>→</span>
@@ -795,7 +795,7 @@ export const HomeView: React.FC = () => {
               setSelectedCategory(null);
               setActiveTab('explore');
             }}
-            className="text-xs text-violet-600 hover:text-violet-700 font-semibold cursor-pointer"
+            className="text-xs text-[#5841E8] hover:text-[#4834d4] font-semibold cursor-pointer min-h-[44px] px-3 inline-flex items-center"
           >
             View All Services →
           </button>
@@ -825,11 +825,11 @@ export const HomeView: React.FC = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Play className="w-4 h-4 text-rose-500 fill-rose-500" />
-            <h2 className="text-sm font-bold text-white tracking-wide uppercase">
+            <h2 className="text-sm font-bold text-slate-900 tracking-wide uppercase">
               Trending Salon Reels & Looks
             </h2>
           </div>
-          <span className="text-xs text-slate-400">Tap to watch & book directly</span>
+          <span className="text-xs text-slate-500 font-medium">Tap to watch & book directly</span>
         </div>
 
         <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
@@ -837,7 +837,7 @@ export const HomeView: React.FC = () => {
             <div
               key={reel.id}
               onClick={() => setActiveReel(reel)}
-              className="relative min-w-[200px] sm:min-w-[240px] h-72 rounded-2xl overflow-hidden group cursor-pointer border border-slate-800 shrink-0 shadow-lg"
+              className="relative min-w-[200px] sm:min-w-[240px] h-72 rounded-2xl overflow-hidden group cursor-pointer border border-slate-200 shrink-0 shadow-xs"
             >
               <img
                 src={reel.videoThumbnail}
@@ -885,25 +885,25 @@ export const HomeView: React.FC = () => {
       <section className="space-y-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-amber-400" />
-            <h2 className="text-sm font-bold text-white tracking-wide uppercase">
+            <Sparkles className="w-4 h-4 text-amber-500" />
+            <h2 className="text-sm font-bold text-slate-900 tracking-wide uppercase">
               Recommended Salons {activeFiltersCount > 0 ? `(${recommendedSalons.length} match)` : ''}
             </h2>
           </div>
           <button
             onClick={() => setActiveTab('explore')}
-            className="text-xs text-violet-400 hover:text-violet-300 font-semibold cursor-pointer"
+            className="text-xs text-violet-600 hover:text-violet-700 font-semibold cursor-pointer"
           >
             Explore All ({salons.length}) →
           </button>
         </div>
 
         {recommendedSalons.length === 0 ? (
-          <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center space-y-2">
-            <p className="text-xs text-slate-300 font-medium">No recommended salons match current filter selections.</p>
+          <div className="p-6 rounded-2xl bg-white border border-slate-200 text-center space-y-2 shadow-xs">
+            <p className="text-xs text-slate-500 font-medium">No recommended salons match current filter selections.</p>
             <button
               onClick={resetAllFilters}
-              className="text-xs text-violet-400 underline font-semibold"
+              className="text-xs text-violet-600 hover:text-violet-700 underline font-semibold"
             >
               Reset Filters
             </button>
@@ -928,13 +928,13 @@ export const HomeView: React.FC = () => {
                       e.stopPropagation();
                       toggleFavoriteSalon(salon.id);
                     }}
-                    className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-md transition-colors cursor-pointer ${
+                    className={`absolute top-3 right-3 w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full backdrop-blur-md transition-colors cursor-pointer ${
                       isSalonFavorite(salon.id)
                         ? 'bg-rose-500 text-white'
                         : 'bg-black/50 text-white hover:bg-black/80'
                     }`}
                   >
-                    <Heart className={`w-3.5 h-3.5 ${isSalonFavorite(salon.id) ? 'fill-white' : ''}`} />
+                    <Heart className={`w-4 h-4 ${isSalonFavorite(salon.id) ? 'fill-white' : ''}`} />
                   </button>
 
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
@@ -977,13 +977,13 @@ export const HomeView: React.FC = () => {
                     <div className="flex gap-2">
                       <button
                         onClick={() => setSelectedSalonId(salon.id)}
-                        className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors cursor-pointer border border-slate-200"
+                        className="px-3.5 py-2 min-h-[44px] inline-flex items-center rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors cursor-pointer border border-slate-200"
                       >
                         Menu
                       </button>
                       <button
                         onClick={() => startBookingForSalon(salon)}
-                        className="px-3 py-1.5 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-xs font-semibold shadow-sm transition-colors cursor-pointer"
+                        className="px-4 py-2 min-h-[44px] inline-flex items-center rounded-xl bg-[#5841E8] hover:bg-[#4834d4] text-white text-xs font-semibold shadow-sm transition-colors cursor-pointer"
                       >
                         Book Slot
                       </button>
@@ -1060,7 +1060,7 @@ export const HomeView: React.FC = () => {
                     e.stopPropagation();
                     startBookingForSalon(salon);
                   }}
-                  className="px-3.5 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-xl text-xs font-bold shadow-sm transition-colors cursor-pointer"
+                  className="px-4 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-[#5841E8] hover:bg-[#4834d4] text-white rounded-xl text-xs font-bold shadow-xs transition-colors cursor-pointer"
                 >
                   Book Slot →
                 </button>
@@ -1072,40 +1072,43 @@ export const HomeView: React.FC = () => {
 
       {/* QUICK FILTER MODAL / DRAWER */}
       {showQuickFilterModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-5 max-w-md w-full space-y-4 shadow-2xl max-h-[85vh] overflow-y-auto">
-            <div className="flex justify-between items-center pb-2 border-b border-slate-800">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-sm animate-fade-in">
+          <div className="bg-[#FFFFFF] border border-[#D8D0E7] rounded-3xl p-5 max-w-md w-full space-y-4 shadow-2xl max-h-[88vh] overflow-y-auto text-[#242132]">
+            <div className="flex justify-between items-center pb-3 border-b border-[#D8D0E7]">
               <div className="flex items-center gap-2">
-                <SlidersHorizontal className="w-4 h-4 text-violet-400" />
-                <h3 className="text-sm font-bold text-white">Filter Salons & Slots</h3>
+                <div className="w-8 h-8 rounded-lg bg-[#ECE7FF] flex items-center justify-center text-[#5841E8]">
+                  <SlidersHorizontal className="w-4 h-4" />
+                </div>
+                <h3 className="text-sm font-bold text-[#242132]">Filter Salons & Slots</h3>
               </div>
               <button
                 onClick={() => setShowQuickFilterModal(false)}
-                className="text-slate-400 hover:text-white cursor-pointer"
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-[#766A83] hover:text-[#242132] hover:bg-[#ECE7FF] transition-colors cursor-pointer"
+                title="Close"
               >
-                ✕
+                <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* 1. Filter by Specific Service Offered */}
             <div>
-              <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+              <label className="text-xs font-bold text-[#242132] uppercase tracking-wider block mb-2">
                 Specific Service Offered
               </label>
-              <div className="grid grid-cols-2 gap-1.5">
+              <div className="grid grid-cols-2 gap-2">
                 {POPULAR_FILTER_SERVICES.map((srv) => {
                   const isSelected = selectedSpecificService === srv.id;
                   return (
                     <button
                       key={srv.id}
                       onClick={() => setSelectedSpecificService(isSelected ? null : srv.id)}
-                      className={`p-2 rounded-xl text-left text-xs transition-colors cursor-pointer ${
+                      className={`p-2.5 min-h-[44px] rounded-xl text-left text-xs transition-colors cursor-pointer flex items-center shadow-xs border ${
                         isSelected
-                          ? 'bg-violet-600 text-white font-bold'
-                          : 'bg-slate-800/60 text-slate-300 hover:bg-slate-800'
+                          ? 'bg-[#5841E8] border-[#5841E8] text-white font-bold'
+                          : 'bg-[#FFFFFF] border-[#D8D0E7] text-[#242132] hover:bg-[#ECE7FF]'
                       }`}
                     >
-                      {srv.label}
+                      <span className="truncate">{srv.label}</span>
                     </button>
                   );
                 })}
@@ -1114,7 +1117,7 @@ export const HomeView: React.FC = () => {
 
             {/* 2. Filter by Availability (Date & Time) */}
             <div>
-              <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+              <label className="text-xs font-bold text-[#242132] uppercase tracking-wider block mb-2">
                 Availability on Particular Date
               </label>
               <div className="flex gap-2">
@@ -1122,10 +1125,10 @@ export const HomeView: React.FC = () => {
                   <button
                     key={d}
                     onClick={() => setFilterDate(filterDate === d ? null : d)}
-                    className={`flex-1 py-2 text-xs font-semibold rounded-xl capitalize transition-colors cursor-pointer ${
+                    className={`flex-1 min-h-[44px] py-2 text-xs font-semibold rounded-xl capitalize transition-colors cursor-pointer flex items-center justify-center shadow-xs border ${
                       filterDate === d
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                        ? 'bg-emerald-600 border-emerald-600 text-white font-bold'
+                        : 'bg-[#FFFFFF] border-[#D8D0E7] text-[#242132] hover:bg-[#ECE7FF]'
                     }`}
                   >
                     {d}
@@ -1135,7 +1138,7 @@ export const HomeView: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+              <label className="text-xs font-bold text-[#242132] uppercase tracking-wider block mb-2">
                 Time Slot Preference
               </label>
               <div className="grid grid-cols-3 gap-2">
@@ -1147,10 +1150,10 @@ export const HomeView: React.FC = () => {
                   <button
                     key={slot.id}
                     onClick={() => setFilterTimeSlot(filterTimeSlot === slot.id ? null : slot.id)}
-                    className={`p-2 text-center text-xs font-semibold rounded-xl transition-colors cursor-pointer ${
+                    className={`p-2 min-h-[44px] text-center text-xs font-semibold rounded-xl transition-colors cursor-pointer flex items-center justify-center shadow-xs border ${
                       filterTimeSlot === slot.id
-                        ? 'bg-indigo-600 text-white'
-                        : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                        ? 'bg-[#5841E8] border-[#5841E8] text-white font-bold'
+                        : 'bg-[#FFFFFF] border-[#D8D0E7] text-[#242132] hover:bg-[#ECE7FF]'
                     }`}
                   >
                     {slot.label}
@@ -1161,10 +1164,10 @@ export const HomeView: React.FC = () => {
 
             {/* 3. Filter by Current Promotions */}
             <div>
-              <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+              <label className="text-xs font-bold text-[#242132] uppercase tracking-wider block mb-2">
                 Current Promotions & Offers
               </label>
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 {[
                   { id: 'any_offer', label: 'Active Promo Codes (e.g. FESTIVE25, 20% OFF)' },
                   { id: 'package_discount', label: 'Packages with Bundled Savings (20%+)' },
@@ -1173,14 +1176,14 @@ export const HomeView: React.FC = () => {
                   <button
                     key={promo.id}
                     onClick={() => setFilterPromotionType(filterPromotionType === promo.id ? null : promo.id)}
-                    className={`w-full p-2.5 rounded-xl text-left text-xs font-medium transition-colors cursor-pointer flex items-center justify-between ${
+                    className={`w-full min-h-[44px] px-3.5 py-2.5 rounded-xl text-left text-xs font-medium transition-colors cursor-pointer flex items-center justify-between shadow-xs border ${
                       filterPromotionType === promo.id
-                        ? 'bg-amber-500/20 text-amber-300 border border-amber-500/50 font-bold'
-                        : 'bg-slate-800/60 text-slate-300 hover:bg-slate-800'
+                        ? 'bg-[#ECE7FF] border-[#5841E8] text-[#5841E8] font-bold'
+                        : 'bg-[#FFFFFF] border-[#D8D0E7] text-[#242132] hover:bg-[#ECE7FF]'
                     }`}
                   >
                     <span>{promo.label}</span>
-                    {filterPromotionType === promo.id && <Check className="w-4 h-4 text-amber-400" />}
+                    {filterPromotionType === promo.id && <Check className="w-4 h-4 text-[#5841E8]" />}
                   </button>
                 ))}
               </div>
@@ -1188,16 +1191,16 @@ export const HomeView: React.FC = () => {
 
             {/* 4. Filter by Service Category */}
             <div>
-              <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+              <label className="text-xs font-bold text-[#242132] uppercase tracking-wider block mb-2">
                 Service Category
               </label>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => setSelectedCategory(null)}
-                  className={`px-2.5 py-1.5 rounded-xl text-xs font-medium cursor-pointer ${
+                  className={`px-3.5 py-2 min-h-[44px] inline-flex items-center rounded-xl text-xs font-semibold cursor-pointer shadow-xs border ${
                     selectedCategory === null
-                      ? 'bg-violet-600 text-white font-bold'
-                      : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                      ? 'bg-[#5841E8] border-[#5841E8] text-white font-bold'
+                      : 'bg-[#FFFFFF] border-[#D8D0E7] text-[#242132] hover:bg-[#ECE7FF]'
                   }`}
                 >
                   All Categories
@@ -1206,10 +1209,10 @@ export const HomeView: React.FC = () => {
                   <button
                     key={cat.id}
                     onClick={() => setSelectedCategory(selectedCategory === cat.id ? null : cat.id)}
-                    className={`px-2.5 py-1.5 rounded-xl text-xs font-medium cursor-pointer ${
+                    className={`px-3.5 py-2 min-h-[44px] inline-flex items-center rounded-xl text-xs font-semibold cursor-pointer shadow-xs border ${
                       selectedCategory === cat.id
-                        ? 'bg-violet-600 text-white font-bold'
-                        : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                        ? 'bg-[#5841E8] border-[#5841E8] text-white font-bold'
+                        : 'bg-[#FFFFFF] border-[#D8D0E7] text-[#242132] hover:bg-[#ECE7FF]'
                     }`}
                   >
                     {cat.label}
@@ -1221,18 +1224,18 @@ export const HomeView: React.FC = () => {
             {/* 5. Distance Radius & Price Range */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+                <label className="text-xs font-bold text-[#242132] uppercase tracking-wider block mb-2">
                   Distance: {maxDistance} km
                 </label>
-                <div className="flex gap-1">
+                <div className="flex gap-1.5">
                   {[3, 5, 10, 20].map((d) => (
                     <button
                       key={d}
                       onClick={() => setMaxDistance(d)}
-                      className={`flex-1 py-1.5 text-xs rounded-xl font-bold cursor-pointer ${
+                      className={`flex-1 min-h-[44px] py-2 text-xs rounded-xl font-bold cursor-pointer flex items-center justify-center shadow-xs border ${
                         maxDistance === d
-                          ? 'bg-violet-600 text-white'
-                          : 'bg-slate-800 text-slate-400 hover:text-white'
+                          ? 'bg-[#5841E8] border-[#5841E8] text-white'
+                          : 'bg-[#FFFFFF] border-[#D8D0E7] text-[#65567E] hover:text-[#242132] hover:bg-[#ECE7FF]'
                       }`}
                     >
                       {d}k
@@ -1242,18 +1245,18 @@ export const HomeView: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+                <label className="text-xs font-bold text-[#242132] uppercase tracking-wider block mb-2">
                   Price Level
                 </label>
-                <div className="flex gap-1">
+                <div className="flex gap-1.5">
                   {['all', '₹', '₹₹', '₹₹₹'].map((p) => (
                     <button
                       key={p}
                       onClick={() => setSelectedPrice(p)}
-                      className={`flex-1 py-1.5 text-xs rounded-xl font-bold cursor-pointer ${
+                      className={`flex-1 min-h-[44px] py-2 text-xs rounded-xl font-bold cursor-pointer flex items-center justify-center shadow-xs border ${
                         selectedPrice === p
-                          ? 'bg-emerald-600 text-white'
-                          : 'bg-slate-800 text-slate-400 hover:text-white'
+                          ? 'bg-emerald-600 border-emerald-600 text-white'
+                          : 'bg-[#FFFFFF] border-[#D8D0E7] text-[#65567E] hover:text-[#242132] hover:bg-[#ECE7FF]'
                       }`}
                     >
                       {p === 'all' ? 'All' : p}
@@ -1265,7 +1268,7 @@ export const HomeView: React.FC = () => {
 
             {/* 6. Minimum Rating */}
             <div>
-              <label className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+              <label className="text-xs font-bold text-[#242132] uppercase tracking-wider block mb-2">
                 Minimum Rating
               </label>
               <div className="flex gap-2">
@@ -1277,10 +1280,10 @@ export const HomeView: React.FC = () => {
                   <button
                     key={item.label}
                     onClick={() => setMinRating(item.r)}
-                    className={`flex-1 py-1.5 text-xs rounded-xl font-semibold cursor-pointer ${
+                    className={`flex-1 min-h-[44px] py-2 text-xs rounded-xl font-semibold cursor-pointer flex items-center justify-center shadow-xs border ${
                       minRating === item.r
-                        ? 'bg-amber-500 text-slate-950 font-bold'
-                        : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                        ? 'bg-amber-400 border-amber-400 text-[#242132] font-bold'
+                        : 'bg-[#FFFFFF] border-[#D8D0E7] text-[#242132] hover:bg-[#ECE7FF]'
                     }`}
                   >
                     {item.label}
@@ -1290,10 +1293,10 @@ export const HomeView: React.FC = () => {
             </div>
 
             {/* Actions */}
-            <div className="flex gap-2 pt-3 border-t border-slate-800">
+            <div className="flex gap-2 pt-3 border-t border-[#D8D0E7]">
               <button
                 onClick={resetAllFilters}
-                className="flex-1 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl cursor-pointer"
+                className="flex-1 min-h-[44px] py-2.5 bg-[#FFFFFF] hover:bg-[#ECE7FF] border border-[#D8D0E7] text-[#242132] text-xs font-semibold rounded-xl cursor-pointer transition-colors shadow-xs"
               >
                 Reset All
               </button>
@@ -1302,7 +1305,7 @@ export const HomeView: React.FC = () => {
                   setShowQuickFilterModal(false);
                   setActiveTab('explore');
                 }}
-                className="flex-1 py-2.5 bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold rounded-xl shadow-lg cursor-pointer"
+                className="flex-1 min-h-[44px] py-2.5 bg-[#5841E8] hover:bg-[#4834d4] text-white text-xs font-bold rounded-xl shadow-xs cursor-pointer transition-colors"
               >
                 View in Explore ({nearbySalons.length}) →
               </button>

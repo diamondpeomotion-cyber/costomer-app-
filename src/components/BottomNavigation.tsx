@@ -63,7 +63,7 @@ export const BottomNavigation: React.FC = () => {
             <button
               key={item.id}
               onClick={() => handleNav(item.id)}
-              className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl transition-all relative cursor-pointer ${
+              className={`flex flex-col items-center justify-center py-1.5 px-0.5 min-h-[50px] rounded-xl transition-all relative cursor-pointer ${
                 isActive
                   ? 'text-violet-600 font-bold'
                   : 'text-slate-500 hover:text-slate-800'

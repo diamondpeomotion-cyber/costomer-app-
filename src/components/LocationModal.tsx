@@ -98,7 +98,8 @@ export const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose })
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+            className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+            title="Close"
           >
             <X className="w-5 h-5" />
           </button>
@@ -109,7 +110,7 @@ export const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose })
           <button
             onClick={handleDetectGPS}
             disabled={isDetecting}
-            className="w-full flex items-center justify-between p-3 rounded-xl bg-violet-50 border border-violet-200 hover:bg-violet-100 transition-all text-violet-800 group cursor-pointer"
+            className="w-full min-h-[44px] flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-violet-50 border border-violet-200 hover:bg-violet-100 transition-all text-violet-800 group cursor-pointer shadow-xs"
           >
             <div className="flex items-center gap-2.5">
               <Navigation className={`w-4 h-4 text-violet-600 ${isDetecting ? 'animate-spin' : ''}`} />
@@ -124,15 +125,15 @@ export const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose })
         </div>
 
         {/* City Tabs */}
-        <div className="px-4 pt-3 flex gap-1.5 overflow-x-auto no-scrollbar">
+        <div className="px-4 pt-3 flex gap-2 overflow-x-auto no-scrollbar">
           {CITIES.map((c) => (
             <button
               key={c.name}
               onClick={() => setSelectedCity(c.name)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+              className={`px-3.5 py-2 min-h-[44px] inline-flex items-center rounded-xl text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer shadow-xs ${
                 selectedCity === c.name
-                  ? 'bg-violet-600 text-white shadow-xs'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  ? 'bg-[#5841E8] text-white shadow-xs'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 border border-slate-200'
               }`}
             >
               {c.name}
@@ -149,13 +150,13 @@ export const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose })
               placeholder={`Search locality or pincode in ${selectedCity}...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-violet-500 transition-colors"
+              className="w-full min-h-[44px] bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-violet-500 transition-colors"
             />
           </div>
         </div>
 
         {/* Localities List */}
-        <div className="px-4 pb-4 overflow-y-auto space-y-1.5 flex-1">
+        <div className="px-4 pb-4 overflow-y-auto space-y-2 flex-1">
           <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
             Popular Neighborhoods in {selectedCity}
           </p>
@@ -166,10 +167,10 @@ export const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose })
               <button
                 key={item.area}
                 onClick={() => handleSelectArea(item.area, item.pincode)}
-                className={`w-full flex items-center justify-between p-2.5 rounded-xl text-left transition-colors cursor-pointer ${
+                className={`w-full min-h-[44px] flex items-center justify-between px-3.5 py-2.5 rounded-xl text-left transition-colors cursor-pointer shadow-xs ${
                   isSelected
                     ? 'bg-violet-50 border border-violet-300 text-violet-900 font-bold'
-                    : 'bg-white hover:bg-slate-50 border border-slate-100 text-slate-700'
+                    : 'bg-white hover:bg-slate-50 border border-slate-200 text-slate-700'
                 }`}
               >
                 <div>

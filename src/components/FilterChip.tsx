@@ -63,17 +63,17 @@ export const FilterChip: React.FC<FilterChipProps> = ({
     <div
       role="group"
       aria-label={ariaLabel || `${category ? category + ': ' : ''}${label}`}
-      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs transition-all duration-150 select-none shadow-sm ${
+      className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border text-xs min-h-[44px] transition-all duration-150 select-none shadow-xs ${
         isActive
           ? currentStyles.active
-          : 'bg-slate-900/50 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+          : 'bg-[#FFFFFF] border-[#D8D0E7] text-[#65567E] hover:text-[#242132] hover:bg-[#ECE7FF]'
       }`}
     >
       {/* Clickable chip body to trigger toggle / modal */}
       <button
         type="button"
         onClick={onClick}
-        className="flex items-center gap-1.5 font-medium cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-violet-400 rounded"
+        className="flex items-center gap-1.5 font-medium cursor-pointer focus:outline-none focus-visible:ring-1 focus-visible:ring-[#5841E8] rounded py-1 min-h-[36px]"
       >
         {icon && <span className="shrink-0">{icon}</span>}
         {category && (
@@ -83,7 +83,7 @@ export const FilterChip: React.FC<FilterChipProps> = ({
         )}
         <span className="truncate max-w-[150px] sm:max-w-[200px] font-semibold">{label}</span>
         {count !== undefined && (
-          <span className="ml-0.5 px-1.5 py-0.2 rounded-full bg-slate-800 text-[10px] font-bold">
+          <span className="ml-0.5 px-1.5 py-0.5 rounded-full bg-[#ECE7FF] text-[#5841E8] text-[10px] font-bold">
             {count}
           </span>
         )}
@@ -98,7 +98,7 @@ export const FilterChip: React.FC<FilterChipProps> = ({
             onRemove();
           }}
           aria-label={`Remove filter: ${label}`}
-          className={`p-1 rounded-lg transition-colors cursor-pointer shrink-0 ml-0.5 ${currentStyles.removeBtn}`}
+          className={`w-7 h-7 flex items-center justify-center rounded-lg transition-colors cursor-pointer shrink-0 ml-0.5 ${currentStyles.removeBtn}`}
           title="Remove filter"
         >
           <X className="w-3.5 h-3.5" />

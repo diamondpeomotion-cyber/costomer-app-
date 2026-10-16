@@ -96,7 +96,7 @@ export const MyBookingsView: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex bg-slate-100 border border-slate-200 p-1 rounded-2xl gap-1 shadow-2xs">
+      <div className="flex bg-[#ECE7FF] border border-[#D8D0E7] p-1.5 rounded-2xl gap-1.5 shadow-2xs">
         {[
           { id: 'upcoming', label: 'Upcoming' },
           { id: 'completed', label: 'Completed' },
@@ -106,10 +106,10 @@ export const MyBookingsView: React.FC = () => {
           <button
             key={tab.id}
             onClick={() => setFilterTab(tab.id as any)}
-            className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${
+            className={`flex-1 py-2.5 min-h-[44px] flex items-center justify-center text-xs font-bold rounded-xl transition-all cursor-pointer ${
               filterTab === tab.id
-                ? 'bg-violet-600 text-white shadow-xs'
-                : 'text-slate-600 hover:text-slate-900'
+                ? 'bg-[#5841E8] text-white shadow-xs'
+                : 'text-[#65567E] hover:text-[#242132]'
             }`}
           >
             {tab.label}
@@ -120,15 +120,15 @@ export const MyBookingsView: React.FC = () => {
       {/* Bookings List */}
       <div className="space-y-4">
         {filteredBookings.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-2xl border border-slate-200 p-6 space-y-3 shadow-xs">
-            <Calendar className="w-10 h-10 text-slate-300 mx-auto" />
-            <h3 className="text-sm font-bold text-slate-800">No appointments in this category</h3>
-            <p className="text-xs text-slate-500 max-w-xs mx-auto">
+          <div className="text-center py-16 bg-[#FFFFFF] rounded-2xl border border-[#D8D0E7] p-6 space-y-3 shadow-xs">
+            <Calendar className="w-10 h-10 text-[#766A83] mx-auto" />
+            <h3 className="text-sm font-bold text-[#242132]">No appointments in this category</h3>
+            <p className="text-xs text-[#65567E] max-w-xs mx-auto">
               Ready to treat yourself? Discover published salons and book with 25% advance.
             </p>
             <button
               onClick={() => setActiveTab('explore')}
-              className="mt-2 px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold rounded-xl shadow-xs cursor-pointer"
+              className="mt-2 px-5 py-2.5 min-h-[44px] inline-flex items-center justify-center bg-[#5841E8] hover:bg-[#4834d4] text-white text-xs font-bold rounded-xl shadow-xs cursor-pointer"
             >
               Explore Salons Now
             </button>
